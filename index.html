@@ -662,7 +662,7 @@ async function enviarLeadInicial() {
     } catch(e) { console.warn('Erro abandono:', e); }
   }
    
-  async function submitForm() {
+async function submitForm() {
     fbq('trackCustom', 'LeadTypeformProprio');
     formConcluido = true;
     clearTimeout(abandonTimer);
@@ -676,7 +676,6 @@ async function enviarLeadInicial() {
     ].join('\n');
     const msg = encodeURIComponent('Olá! Quero agendar minha avaliação BRP Face.');
     document.getElementById('btn-whatsapp').href = `https://wa.me/${WHATSAPP_CLINICA}?text=${msg}`;
-    goTo(current+1,'forward');
     try {
       await fetch(ATHENDLY_URL, {
         method: 'POST',
@@ -688,8 +687,8 @@ async function enviarLeadInicial() {
         })
       });
     } catch(e) { console.warn('Webhook error:',e); }
+    goTo(current+1,'forward');
   }
-
   updateProgress();
   updateNav();
 </script>
