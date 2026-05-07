@@ -651,7 +651,7 @@ const nota = [
 ].join('\n');
     try {
       await fetch(ATHENDLY_URL, {
-        method: 'POST', mode:
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           nome: answers.nome||'',
