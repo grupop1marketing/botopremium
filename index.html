@@ -8,7 +8,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; fetch("https://app.atendly.com.br/api/webhooks/integrations/webhook/59/hyOXrwfrKDT9rANb6bPL6OYKd?event=input.lead.new", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    nome: "Teste Direto",
+    whatsapp: "34999999999",
+    nota: "Teste de nota direta"
+  })
+})
+.then(r => r.json())
+.then(console.log)
+.catch(console.error);margin: 0; padding: 0; }
 
   :root {
     --gold: #C9A84C;
@@ -617,7 +628,7 @@ async function enviarLeadInicial() {
     if (!answers.whatsapp) return;
     try {
       await fetch(ATHENDLY_URL, {
-        method: 'POST', mode: 'no-cors',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           nome: answers.nome||'',
