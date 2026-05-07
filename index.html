@@ -666,13 +666,13 @@ async function enviarLeadInicial() {
     clearTimeout(abandonTimer);
     const msg = encodeURIComponent('Olá! Quero agendar minha avaliação BRP Face.');
     document.getElementById('btn-whatsapp').href = `https://wa.me/${WHATSAPP_CLINICA}?text=${msg}`;
-    goTo(current+1,'forward');
-    const nota = `Idade: ${answers.idade||''}
+const nota = `Idade: ${answers.idade||''}
     Incômodo: ${answers.incomodo||''}
     Momento: ${answers.momento||''}
     Investimento: ${answers.investimento||''}
     Resultado faz sentido: ${answers.resultado_faz_sentido||''}
     Decisão: ${answers.decisao||''}`;
+goTo(current+1,'forward');
     try {
       await fetch(ATHENDLY_URL, {
         method:'POST', mode:'no-cors',
