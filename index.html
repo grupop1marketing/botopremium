@@ -291,7 +291,6 @@ src="https://www.facebook.com/tr?id=2101398087272409&ev=PageView&noscript=1"
       <h1 class="intro-heading"><strong>Rejuvenesça até 10 anos</strong> com técnica, segurança e <strong>naturalidade</strong> através do Protocolo BRP Face.</h1>
       <p class="intro-sub">Descubra como um protocolo personalizado pode transformar seu rosto sem exageros.</p>
       <button class="btn-intro" id="btn-intro">Eu mereço!</button>
-      <span class="intro-takes">⏱ Takes X minutes</span>
     </div>
   </div>
 
@@ -591,7 +590,7 @@ src="https://www.facebook.com/tr?id=2101398087272409&ev=PageView&noscript=1"
   });
 
   function goNext() {
-    if (currentId() === 'slide-8') { submitForm(); return;
+    if (currentId() === 'slide-8') { submitForm(); return; }
     if (currentId() === 'slide-7') { enviarLeadInicial(); }
     if (current < slideStack.length-1) goTo(current+1,'forward');
   }
