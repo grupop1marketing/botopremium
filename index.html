@@ -641,13 +641,13 @@ async function enviarLeadInicial() {
 
   async function enviarAbandonoCRM() {
     if (!answers.whatsapp || formConcluido) return;
-const nota = [
-  `Idade: ${answers.idade||''}`,
-  `Incômodo: ${answers.incomodo||''}`,
-  `Momento: ${answers.momento||''}`,
-  `Investimento: ${answers.investimento||''}`,
-  `Resultado faz sentido: ${answers.resultado_faz_sentido||''}`,
-  `Decisão: ${answers.decisao||''}`
+    const nota = [
+      `Idade: ${answers.idade||''}`,
+      `Incômodo: ${answers.incomodo||''}`,
+      `Momento: ${answers.momento||''}`,
+      `Investimento: ${answers.investimento||''}`,
+      `Resultado faz sentido: ${answers.resultado_faz_sentido||''}`,
+      `Decisão: ${answers.decisao||''}`
 ].join('\n');
     try {
       await fetch(ATHENDLY_URL, {
