@@ -594,8 +594,8 @@ src="https://www.facebook.com/tr?id=2101398087272409&ev=PageView&noscript=1"
     if (e.key === 'Enter' && !document.getElementById('btn-next').disabled) goNext();
   });
 
-  function goNext() {
-    if (currentId() === 'slide-8') { submitForm(); return; }
+ function goNext() {
+    if (currentId() === 'slide-6a' || currentId() === 'slide-6b') { submitForm(); return; }
     if (currentId() === 'slide-7') { enviarLeadInicial(); }
     if (current < slideStack.length-1) goTo(current+1,'forward');
   }
@@ -648,7 +648,7 @@ async function enviarLeadInicial() {
       `Investimento: ${answers.investimento||''}`,
       `Resultado faz sentido: ${answers.resultado_faz_sentido||''}`,
       `Decisão: ${answers.decisao||''}`
-].join('\n');
+    ].join('\n');
     try {
       await fetch(ATHENDLY_URL, {
         method: 'POST',
