@@ -617,7 +617,7 @@ src="https://www.facebook.com/tr?id=2101398087272409&ev=PageView&noscript=1"
     if (!answers.whatsapp) return;
     try {
       await fetch(MAKE_WEBHOOK_URL, {
-        method: 'POST', mode: 'no-cors',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           evento: 'lead_inicial',
