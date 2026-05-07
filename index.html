@@ -603,7 +603,7 @@ src="https://www.facebook.com/tr?id=2101398087272409&ev=PageView&noscript=1"
   document.getElementById('btn-back').addEventListener('click', goBack);
 
   async function submitForm() {
-    fbq('track', 'Lead');
+    fbq('trackCustom', 'LeadTypeformProprio');
     const msg = encodeURIComponent('Olá! Quero agendar minha avaliação BRP Face.');
     document.getElementById('btn-whatsapp').href = `https://wa.me/${WHATSAPP_CLINICA}?text=${msg}`;
     goTo(current+1,'forward');
