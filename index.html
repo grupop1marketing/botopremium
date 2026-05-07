@@ -8,18 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; fetch("https://app.atendly.com.br/api/webhooks/integrations/webhook/59/hyOXrwfrKDT9rANb6bPL6OYKd?event=input.lead.new", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    nome: "Teste Direto",
-    whatsapp: "34999999999",
-    nota: "Teste de nota direta"
-  })
-})
-.then(r => r.json())
-.then(console.log)
-.catch(console.error);margin: 0; padding: 0; }
 
   :root {
     --gold: #C9A84C;
@@ -674,6 +662,7 @@ async function submitForm() {
       `Resultado faz sentido: ${answers.resultado_faz_sentido||''}`,
       `Decisão: ${answers.decisao||''}`
     ].join('\n');
+    console.log('🔍 Enviando para Athendly:', { nome: answers.nome, whatsapp: answers.whatsapp, nota });
     const msg = encodeURIComponent('Olá! Quero agendar minha avaliação BRP Face.');
     document.getElementById('btn-whatsapp').href = `https://wa.me/${WHATSAPP_CLINICA}?text=${msg}`;
     try {
