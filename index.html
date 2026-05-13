@@ -679,6 +679,7 @@ async function enviarLeadInicial() {
   }
    
 async function submitForm() {
+    fbq('trackCustom', 'TypeformSubmit');
     fbq('trackCustom', 'LeadTypeformProprio');
     formConcluido = true;
     clearTimeout(abandonTimer);
