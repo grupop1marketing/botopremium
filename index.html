@@ -567,8 +567,16 @@ src="https://www.facebook.com/tr?id=2101398087272409&ev=PageView&noscript=1"
   });
 
   document.getElementById('input-whatsapp').addEventListener('input', function() {
+    // Remove todos os não-dígitos
+    let v = this.value.replace(/\D/g, '');
+    // Se veio com +55 (DDI Brasil), remove os 2 primeiros dígitos
+    if (v.length > 11 && v.startsWith('55')) {
+      v = v.slice(2);
+    }
+    // Garante no máximo 11 dígitos (DDD + 9 dígitos)
+    v = v.slice(0, 11);
+
     // Máscara (XX) XXXXX-XXXX
-    let v = this.value.replace(/\D/g, '').slice(0, 11);
     let masked = '';
     if (v.length === 0) {
       masked = '';
